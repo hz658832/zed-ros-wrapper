@@ -661,7 +661,7 @@ namespace zed_wrapper {
         try {
             // Save the transformation from base to frame
             geometry_msgs::TransformStamped s2b =
-                mTfBuffer->lookupTransform(mBaseFrameId, mDepthFrameId, mFrameTimestamp);
+                mTfBuffer->lookupTransform(mBaseFrameId, mDepthFrameId, mFrameTimestamp, ros::Duration(2));
             // Get the TF2 transformation
             tf2::fromMsg(s2b.transform, mSensor2BaseTransf);
         } catch (tf2::TransformException& ex) {
